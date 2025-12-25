@@ -61,14 +61,18 @@ The scoring mechanism is ATS-inspired, based on common recruiter heuristics and 
 
 <h1><b>🛠️ How to Run Locally</b></h1>
 Backend
-cd backend
+
+```bash cd backend
 pip install -r requirements.txt
 uvicorn main:app --reload
+```
 
 Frontend
-cd frontend
+
+```bash cd frontend
 pip install -r requirements.txt
 streamlit run app.py
+```
 
 
 Make sure to set your GEMINI_API_KEY as an environment variable.
