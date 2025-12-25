@@ -1,0 +1,2 @@
+For Frontend : streamlit requests
+For Backend : fastapi uvicorn google-generativeai pdfplumber python-multipart python-dotenv
