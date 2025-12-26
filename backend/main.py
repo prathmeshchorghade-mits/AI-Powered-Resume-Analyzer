@@ -1,19 +1,53 @@
-from fastapi import FastAPI, UploadFile, Form
-from analyzer import analyze_resume
-from utils import extract_text
 import json
+import re
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+from backend.analyzer import analyze_resume
 
-app = FastAPI(title="AI Resume Analyzer API")
+app = FastAPI()
+
+class AnalyzeRequest(BaseModel):
+    resume_text: str
+    job_description: str
+
+def extract_json(text: str) -> dict:
+    """
+    Extract the first valid JSON object from model output.
+    """
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        pass
+
+    # Try to extract JSON substring
+    match = re.search(r"\{.*\}", text, re.DOTALL)
+    if match:
+        return json.loads(match.group())
+
+    raise ValueError("No valid JSON found")
 
 @app.post("/analyze")
-async def analyze(file: UploadFile, role: str = Form(...)):
-    resume_text = extract_text(file.file)
-    raw_output = analyze_resume(resume_text, role)
+def analyze(data: AnalyzeRequest):
+    raw = analyze_resume(data.resume_text, data.job_description)
 
     try:
-        return json.loads(raw_output)
+        return extract_json(raw)
     except Exception:
-        return {
-            "error": "Failed to parse AI response",
-            "raw_output": raw_output
-        }
+        # ONE retry with correction instruction
+        retry_prompt = (
+            raw
+            + "\n\nFIX THE ABOVE AND RETURN ONLY VALID JSON."
+        )
+
+        corrected = analyze_resume(
+            data.resume_text,
+            data.job_description
+        )
+
+        try:
+            return extract_json(corrected)
+        except Exception:
+            raise HTTPException(
+                status_code=500,
+                detail="Model failed to return valid JSON after retry"
+            )
