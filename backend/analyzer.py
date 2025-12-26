@@ -20,6 +20,7 @@ RULES:
 JSON SCHEMA:
 {{
   "match_percentage": number,
+  "ats_score": ats_score, 
   "strengths": [string],
   "weaknesses": [string],
   "missing_skills": [string],
