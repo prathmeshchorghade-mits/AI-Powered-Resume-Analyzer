@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cdee4a2-6ded-46c0-9e5c-a28f82b8b40e" name="Changes" comment="First change to the AI-Powered-Resume-Analyzer.iml model basic prototype">
-      <change afterPath="$PROJECT_DIR$/frontend/assets/GDG-Logo.jpg" afterDir="false" />
+    <list default="true" id="9cdee4a2-6ded-46c0-9e5c-a28f82b8b40e" name="Changes" comment="some frontend changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/analyzer.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/analyzer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/tets.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,22 +36,22 @@
     &quot;assignee&quot;: &quot;prathmeshchorghade-mits&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/prathmeshchorghade-mits/AI-Powered-Resume-Analyzer.git",
-    "accountId": "36d4a8d3-5d94-4032-812b-749b151a71c6"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/prathmeshchorghade-mits/AI-Powered-Resume-Analyzer.git&quot;,
+    &quot;accountId&quot;: &quot;36d4a8d3-5d94-4032-812b-749b151a71c6&quot;
   },
-  "recentNewPullRequestHead": {
-    "server": {
-      "useHttp": false,
-      "host": "github.com",
-      "port": null,
-      "suffix": null
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
     },
-    "owner": "prathmeshchorghade-mits",
-    "repository": "AI-Powered-Resume-Analyzer"
+    &quot;owner&quot;: &quot;prathmeshchorghade-mits&quot;,
+    &quot;repository&quot;: &quot;AI-Powered-Resume-Analyzer&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -62,18 +60,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.app.executor": "Run",
-    "Python.tets.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "#1 on prathmesh",
-    "last_opened_file_path": "/home/prathmesh/PycharmProjects/AI-Powered-Resume-Analyzer/frontend/assets"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.app.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tets.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;prathmesh&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/prathmesh/PycharmProjects/AI-Powered-Resume-Analyzer/frontend/assets&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/frontend/assets" />
@@ -140,7 +138,15 @@
       <option name="project" value="LOCAL" />
       <updated>1766746744243</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="some frontend changes">
+      <option name="closed" value="true" />
+      <created>1766753920179</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1766753920179</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -168,6 +174,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First change to the AI-Powered-Resume-Analyzer.iml model basic prototype" />
-    <option name="LAST_COMMIT_MESSAGE" value="First change to the AI-Powered-Resume-Analyzer.iml model basic prototype" />
+    <MESSAGE value="some frontend changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="some frontend changes" />
   </component>
 </project>

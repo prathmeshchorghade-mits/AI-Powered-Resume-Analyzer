@@ -1,53 +1,20 @@
-import json
-import re
-from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
+from fastapi import FastAPI, UploadFile, File, Form, HTTPException
 from backend.analyzer import analyze_resume
 
-app = FastAPI()
-
-class AnalyzeRequest(BaseModel):
-    resume_text: str
-    job_description: str
-
-def extract_json(text: str) -> dict:
-    """
-    Extract the first valid JSON object from model output.
-    """
-    try:
-        return json.loads(text)
-    except json.JSONDecodeError:
-        pass
-
-    # Try to extract JSON substring
-    match = re.search(r"\{.*\}", text, re.DOTALL)
-    if match:
-        return json.loads(match.group())
-
-    raise ValueError("No valid JSON found")
+app = FastAPI(title="AI Resume Analyzer")
 
 @app.post("/analyze")
-def analyze(data: AnalyzeRequest):
-    raw = analyze_resume(data.resume_text, data.job_description)
+async def analyze(
+    resume: UploadFile = File(...),
+    job_role: str = Form(...)
+):
+    if not resume.filename.lower().endswith(".pdf"):
+        raise HTTPException(status_code=400, detail="Only PDF files are supported")
 
-    try:
-        return extract_json(raw)
-    except Exception:
-        # ONE retry with correction instruction
-        retry_prompt = (
-            raw
-            + "\n\nFIX THE ABOVE AND RETURN ONLY VALID JSON."
-        )
+    pdf_bytes = await resume.read()
 
-        corrected = analyze_resume(
-            data.resume_text,
-            data.job_description
-        )
+    if not pdf_bytes:
+        raise HTTPException(status_code=400, detail="Uploaded PDF is empty")
 
-        try:
-            return extract_json(corrected)
-        except Exception:
-            raise HTTPException(
-                status_code=500,
-                detail="Model failed to return valid JSON after retry"
-            )
+    return analyze_resume(pdf_bytes=pdf_bytes, role=job_role)
+
