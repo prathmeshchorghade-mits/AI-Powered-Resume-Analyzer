@@ -140,12 +140,7 @@ with left:
     job_role = st.selectbox(
         "Target role",
         [
-            "Software Engineer",
-            "Data Scientist",
-            "Machine Learning Engineer",
-            "Web Developer",
-            "Backend Developer",
-            "Frontend Developer"
+            "Software Engineer"
         ]
     )
 
