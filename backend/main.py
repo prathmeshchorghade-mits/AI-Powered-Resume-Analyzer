@@ -1,5 +1,5 @@
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException
-from backend.analyzer import analyze_resume
+from analyzer import analyze_resume
 
 app = FastAPI(title="AI Resume Analyzer")
 
