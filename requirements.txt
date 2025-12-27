@@ -2,4 +2,4 @@ fastapi
 uvicorn
 python-dotenv
 pypdf
-google-generativeai
+google-genai
