@@ -1,5 +1,5 @@
 fastapi
 uvicorn
-pyhton-dotenv
+python-dotenv
 pypdf
 google-generativeai
