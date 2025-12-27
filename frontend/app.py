@@ -200,7 +200,7 @@ if analyze_btn:
                 f"{BACKEND_URL}/analyze",
                 files={"resume": uploaded_file},
                 data={"job_role": job_role},
-                timeout=60        
+                timeout=180        
                 )
 
 
