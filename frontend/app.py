@@ -194,12 +194,15 @@ if analyze_btn:
     else:
         with st.spinner("Analyzing resume..."):
             try:
+                BACKEND_URL = "https://ai-powered-resume-analyzer-3oqf.onrender.com"
+
                 response = requests.post(
-                    "http://127.0.0.1:8000/analyze",
-                    files={"resume": uploaded_file},
-                    data={"job_role": job_role},
-                    timeout=60
+                f"{BACKEND_URL}/analyze",
+                files={"resume": uploaded_file},
+                data={"job_role": job_role},
+                timeout=60        
                 )
+
 
                 if response.status_code != 200:
                     st.error("Backend error. Check server logs.")
