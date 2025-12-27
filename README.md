@@ -1,102 +1,187 @@
-<h1><b>AI Resume Analyzer</b></h1>
+<h1><b>🧠 AI-Powered Resume Analyzer</b></h1>
 
-FastAPI + Streamlit | Powered by Gemini API
+An ATS-style resume evaluation system that analyzes PDF resumes against a target job role and provides deterministic ATS scores along with AI-generated, detailed feedback using Google Gemini AI.
 
-<h1><b>📌 Overview</b></h1>
-
-AI Resume Analyzer is a web-based application that provides role-specific, actionable feedback on resumes using large language models. Unlike traditional keyword-based tools, this system evaluates resumes semantically, focusing on clarity, relevance, and skill alignment.
-
-The project is built with a decoupled architecture:
-
-A FastAPI backend handles resume processing and AI analysis
-
-A Streamlit frontend provides an intuitive web interface for users
-
-This design ensures scalability, maintainability, and future extensibility.
+Built with FastAPI (backend) and Streamlit (frontend).
 
 <h1><b>🚀 Features</b></h1>
 
-Upload resumes in PDF format
+📄 Upload resume in PDF format
 
-Select a target job role (Software Developer, Data Analyst, ML Engineer)
+🎯 Select target job role (e.g. Software Engineer)
 
-Receive:
+📊 Deterministic ATS Compatibility Score (no randomness)
 
-ATS-inspired resume score (heuristic-based)
+✅ Detailed Strengths
 
-Strengths and weaknesses
+⚠️ Actionable Weaknesses
 
-Missing skills for the selected role
+❌ Role-specific Missing Skills
 
-Actionable improvement suggestions
+💡 Practical Improvement Suggestions
 
-Fully web-accessible UI for remote evaluation
+🤖 AI feedback powered by Google Gemini
 
-<h1><b>🧠 AI & Technology Stack</b></h1>
-Backend
+🎨 Modern, interactive Streamlit UI with hover effects
 
-FastAPI – REST API for resume analysis
-
-Gemini API – Semantic resume evaluation and feedback generation
-
-pdfplumber – Resume text extraction
-
+<h1><b>🏗️ Tech Stack</b></h1>
 Frontend
 
-Streamlit – Interactive web interface
+Streamlit
 
-requests – Communication with backend API
+Custom HTML + CSS (animations, hover effects)
 
-Architecture
-Streamlit (Frontend)
-        ↓
-FastAPI (Backend)
-        ↓
-Gemini API (AI Analysis)
-
-<h1><b>⚠️ Disclaimer</b></h1>
-
-This tool does not claim to replicate proprietary Applicant Tracking Systems (ATS).
-The scoring mechanism is ATS-inspired, based on common recruiter heuristics and semantic analysis, and is intended as a decision-support tool, not a hiring authority.
-
-<h1><b>🛠️ How to Run Locally</b></h1>
 Backend
 
-```bash cd backend
+FastAPI
+
+Google Gemini API
+
+PyPDF
+
+Python 3.10+
+
+📂 Project Structure
+```text
+AI-Powered-Resume-Analyzer/
+│
+├── backend/
+│   ├── main.py          # FastAPI entry point
+│   ├── analyzer.py      # Resume analysis logic
+│
+├── frontend/
+│   ├── app.py           # Streamlit UI
+│   └── assets/
+│       └── GDG-Logo.png
+│
+├── .env                 # Gemini API key
+├── requirements.txt
+└── README.md
+```
+<h1><b>⚙️ Setup Instructions</b></h1>
+
+1️⃣ Clone the repository
+```bash
+git clone https://github.com/prathmeshchorghade-mits/AI-Powered-Resume-Analyzer.git
+cd AI-Powered-Resume-Analyzer
+```
+2️⃣ Create virtual environment
+```bash
+python -m venv .venv
+source .venv/bin/activate   # Linux / macOS
+.venv\Scripts\activate      # Windows
+```
+3️⃣ Install dependencies
+``bash
 pip install -r requirements.txt
-uvicorn main:app --reload
+``
+4️⃣ Configure Gemini API Key
+
+Create a .env file in the root directory:
+```
+GEMINI_API_KEY=your_google_gemini_api_key_here
 ```
 
-Frontend
+<h1><b>▶️ Running the Application</b></h1>
 
-```bash cd frontend
-pip install -r requirements.txt
+Start Backend (FastAPI)
+```bash
+uvicorn backend.main:app --reload
+```
+
+Backend runs at: http://127.0.0.1:8000
+
+API docs: http://127.0.0.1:8000/docs
+
+Start Frontend (Streamlit)
+
+Open a new terminal:
+```bash
+cd frontend
 streamlit run app.py
 ```
 
+Frontend runs at: http://localhost:8501
 
-Make sure to set your GEMINI_API_KEY as an environment variable.
+<h1><b>🧪 How ATS Score Works</b></h1>
 
-<h1><b>🎯 Use Cases</b></h1>
+The ATS score is deterministic, not AI-generated.
 
-Students preparing resumes for internships and placements
+It is calculated by:
 
-Career counselors and mentors
+Matching predefined core skills for the selected role
 
-Hackathon and academic demonstrations of applied AI
+Computing a percentage based on skill presence
 
-Prototype for future HR-tech platforms
+Clamped between 5 and 95 to avoid extremes
 
-<h1><b>🔮 Future Enhancements</b></h1>
+Example for Software Engineer:
+```
+python, java, c++, javascript,
+data structures, algorithms,
+git, sql, linux, oop
+```
+<h1><b>🤖 AI Analysis Details</b></h1>
 
-Support for additional job roles
+Gemini AI is used only for qualitative feedback:
 
-Resume comparison (before vs after improvement)
+Strengths
 
-Deployment of backend as a cloud microservice
+Weaknesses
 
-Integration with mobile or enterprise applications
+Missing Skills
 
-<h1><b>📄 License</b></h1>
-  
-This project is developed for educational and hackathon purposes.
+Suggestions
+
+Strict rules enforced:
+
+JSON-only output
+
+Minimum length per bullet
+
+Resume-aware feedback
+
+Fallback logic if AI fails
+
+<h1><b>🛡️ Error Handling</b></h1>
+
+Handles empty resumes
+
+Handles scanned PDFs (fallback)
+
+Safe fallback if Gemini API fails
+
+No frontend crashes on backend errors
+
+<h1><b>📸 UI Highlights</b></h1>
+
+Gradient animated hero section
+
+Hover-responsive cards
+
+Clean ATS-style report layout
+
+Dark modern theme
+
+<h1><b>🧩 Future Improvements</b></h1>
+
+Resume vs Job Description comparison
+
+Section-wise scoring (Skills / Projects / Experience)
+
+Keyword highlighting
+
+Downloadable feedback PDF
+
+Multiple role support
+
+Authentication & user history
+
+<h1><b>👥 Team</b></h1>
+
+<b>Developed by Team DeadLock</b>
+
+<h1><b>📜 License</b></h1>
+
+This project is for educational and demonstration purposes.
+You are free to fork, modify, and improve it.
